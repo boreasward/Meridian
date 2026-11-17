@@ -1,0 +1,8 @@
+/* This project's own tokens and their `@theme inline` mappings (Meridian's app.css imports this file).
+   Leave it empty when the project needs nothing beyond the base tokens. Colours here are hex literals too,
+   defined for both themes, e.g.
+
+   :root { --up: #15803d; }
+   [data-theme='dark'] { --up: #22c55e; }
+   @theme inline { --color-up: var(--up); }
+*/

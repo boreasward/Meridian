@@ -1,0 +1,41 @@
+/* Design tokens v1. Hex only (no oklch, no var() chains).
+   Light and dark define the same set; every status color passes WCAG AA as text on --card in both. */
+:root {
+  color-scheme: light;
+  --radius: 8px;
+
+  /* surfaces */
+  --background: #fafafa; --card: #ffffff; --card-foreground: #1a1a1a;
+  --popover: #ffffff; --popover-foreground: #1a1a1a;
+  --muted: #f2f2f2; --border: #ececec; --input: #e0e0e0; --ring: #1a1a1a;
+  /* text */
+  --foreground: #1a1a1a; --muted-foreground: #6b6b6b;
+  /* accent */
+  --primary: #1a1a19; --primary-foreground: #ffffff;
+  /* status */
+  --success: #15803d; --success-foreground: #ffffff;
+  --warn: #b45309; --warn-foreground: #ffffff;
+  --destructive: #dc2626; --destructive-foreground: #ffffff;
+  --info: #1d4ed8; --info-foreground: #ffffff;
+  --running: #6d28d9; --running-foreground: #ffffff;
+  --neutral: #475569; --neutral-foreground: #ffffff;
+  /* elevation */
+  --shadow-1: 0 1px 2px rgba(15,23,42,.06); --shadow-2: 0 14px 35px rgba(15,23,42,.08);
+}
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --background: #0f0f0f; --card: #171717; --card-foreground: #ededed;
+  --popover: #171717; --popover-foreground: #ededed;
+  --muted: #222222; --border: #2a2a2a; --input: #3a3a3a; --ring: #ededed;
+  --foreground: #ededed; --muted-foreground: #9a9a9a;
+  --primary: #ededed; --primary-foreground: #111111;
+  --success: #22c55e; --success-foreground: #052e16;
+  --warn: #f59e0b; --warn-foreground: #1c1002;
+  --destructive: #f87171; --destructive-foreground: #2a0a0a;
+  --info: #60a5fa; --info-foreground: #0a1a33;
+  --running: #a78bfa; --running-foreground: #1e1136;
+  --neutral: #94a3b8; --neutral-foreground: #0b0f14;
+  --shadow-1: 0 1px 2px rgba(0,0,0,.4); --shadow-2: 0 14px 35px rgba(0,0,0,.5);
+}
+.tabular { font-variant-numeric: tabular-nums; }

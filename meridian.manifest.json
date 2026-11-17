@@ -1,0 +1,46 @@
+{
+  "synced": [
+    "web/src/styles/tokens.css",
+    "web/src/styles/app.css",
+    "web/src/styles/tokens.test.ts",
+    "web/src/lib/utils.ts",
+    "web/src/lib/theme.ts",
+    "web/src/lib/theme.test.ts",
+    "web/src/lib/ui/**",
+    "web/src/lib/shell/**",
+    "web/src/lib/stores/resource.svelte.ts",
+    "web/src/lib/stores/resource.test.ts",
+    "web/src/lib/stores/ResourceConsumer.test.svelte",
+    "web/src/lib/views/ResourceBlock.svelte",
+    "web/src/lib/views/ResourceBlock.test.ts",
+    "web/meridian.lock.test.js",
+    "tests/meridian_guards.py"
+  ],
+  "templates": [
+    "web/src/styles/project.css",
+    "web/src/lib/app/status.ts",
+    "web/src/lib/app/icons.ts",
+    "web/src/lib/api.ts",
+    "tests/test_frontend_design_guards.py"
+  ],
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@internationalized/date": "3.12.4",
+    "@lucide/svelte": "1.65.0",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "@tailwindcss/vite": "4.3.3",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/svelte": "^5.4.2",
+    "bits-ui": "2.20.2",
+    "cn": "0.3.3",
+    "jsdom": "^29.1.1",
+    "svelte": "^5.56.4",
+    "svelte-check": "^4.7.1",
+    "svelte-sonner": "1.2.2",
+    "tailwind-variants": "3.3.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^4.1.9"
+  }
+}

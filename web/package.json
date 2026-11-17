@@ -1,0 +1,35 @@
+{
+  "name": "meridian-web",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "svelte-check --tsconfig ./tsconfig.json && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.2.8",
+    "@internationalized/date": "3.12.4",
+    "@lucide/svelte": "1.65.0",
+    "@sveltejs/vite-plugin-svelte": "^5.1.1",
+    "bits-ui": "2.20.2",
+    "cn": "0.3.3",
+    "svelte": "^5.56.4",
+    "svelte-check": "^4.7.1",
+    "svelte-sonner": "1.2.2",
+    "tailwind-variants": "3.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.3.3",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/svelte": "^5.4.2",
+    "@vitest/ui": "^4.1.9",
+    "jsdom": "^29.1.1",
+    "tailwindcss": "4.3.3",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7",
+    "vitest": "^4.1.9"
+  }
+}

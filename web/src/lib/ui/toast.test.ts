@@ -1,0 +1,49 @@
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
+import { render, screen, cleanup, act, fireEvent, within } from '@testing-library/svelte'
+import { Toaster } from './sonner/index'
+import { notify } from './toast'
+
+beforeEach(() => {
+  vi.stubGlobal('matchMedia', () => ({ matches: false, addEventListener() {}, removeEventListener() {} }))
+  vi.useFakeTimers()
+})
+afterEach(() => { cleanup(); vi.useRealTimers(); vi.unstubAllGlobals() })
+
+describe('notify', () => {
+  it('success auto-dismisses after 3s, error stays', async () => {
+    render(Toaster)
+    await act(() => { notify.success('已保存'); notify.error('保存失败：网络中断'); notify.info('已提交批处理') })
+    expect(await screen.findByText('已保存')).toBeInTheDocument()
+    expect(screen.getByText('保存失败：网络中断')).toBeInTheDocument()
+    expect(screen.getByText('已提交批处理')).toBeInTheDocument()
+
+    await act(() => { vi.advanceTimersByTime(2500) })
+    expect(screen.getByText('已保存')).toBeInTheDocument()
+
+    await act(() => { vi.advanceTimersByTime(1500) })
+    await act(() => { vi.advanceTimersByTime(1000) })
+    expect(screen.queryByText('已保存')).toBeNull()
+    expect(screen.queryByText('已提交批处理')).toBeNull()
+    expect(screen.getByText('保存失败：网络中断')).toBeInTheDocument()
+
+    await act(() => { vi.advanceTimersByTime(60_000) })
+    expect(screen.getByText('保存失败：网络中断')).toBeInTheDocument()
+  })
+
+  it('the error toast has a 关闭 button that dismisses it', async () => {
+    render(Toaster)
+    await act(() => { notify.error('导出失败：磁盘已满') })
+    const toastEl = (await screen.findByText('导出失败：磁盘已满')).closest('li')!
+    const close = within(toastEl).getByRole('button', { name: '关闭' })
+    await fireEvent.click(close)
+    await act(() => { vi.advanceTimersByTime(1000) })
+    expect(screen.queryByText('导出失败：磁盘已满')).toBeNull()
+  })
+
+  it('success toasts have no close button', async () => {
+    render(Toaster)
+    await act(() => { notify.success('已导入') })
+    const toastEl = (await screen.findByText('已导入')).closest('li')!
+    expect(within(toastEl).queryByRole('button', { name: '关闭' })).toBeNull()
+  })
+})
